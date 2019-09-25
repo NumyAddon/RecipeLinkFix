@@ -1,0 +1,15 @@
+## Interface: 80205
+## Title: RecipeLinkFix
+## Version: 1.3.1
+## Notes: Fixes recipe links You send
+## Author: Numy
+## X-License: GNU General Public License version 3 (GPLv3)
+
+## LoadManagers: AddonLoader
+## X-LoadOn-Always: true
+
+#@no-lib-strip@
+embeds.xml
+#@end-no-lib-strip@
+
+core.lua
