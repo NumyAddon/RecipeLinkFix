@@ -1,4 +1,4 @@
-## Interface: 80300
+## Interface: 90001
 ## Title: RecipeLinkFix
 ## Version: @project-version@
 ## Notes: Fixes recipe links You send
@@ -8,8 +8,5 @@
 ## LoadManagers: AddonLoader
 ## X-LoadOn-Always: true
 
-#@no-lib-strip@
-embeds.xml
-#@end-no-lib-strip@
-
+libs\embeds.xml
 core.lua
