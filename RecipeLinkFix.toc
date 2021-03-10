@@ -1,4 +1,4 @@
-## Interface: 90002
+## Interface: 90005
 ## Title: RecipeLinkFix
 ## Version: @project-version@
 ## Notes: Fixes recipe links You send
