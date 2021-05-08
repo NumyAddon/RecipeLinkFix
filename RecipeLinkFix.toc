@@ -1,12 +1,10 @@
-## Interface: 90005
+## Interface: @toc-version-retail@
 ## Title: RecipeLinkFix
 ## Version: @project-version@
 ## Notes: Fixes recipe links You send
 ## Author: Numy
 ## X-License: GNU General Public License version 3 (GPLv3)
-
-## LoadManagers: AddonLoader
-## X-LoadOn-Always: true
+## X-Curse-Project-ID: 280290
 
 libs\embeds.xml
 core.lua
