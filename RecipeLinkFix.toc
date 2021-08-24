@@ -5,6 +5,7 @@
 ## Author: Numy
 ## X-License: GNU General Public License version 3 (GPLv3)
 ## X-Curse-Project-ID: 280290
+## X-Wago-ID: kRNLw0Go
 
 libs\embeds.xml
 core.lua
