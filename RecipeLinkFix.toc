@@ -3,7 +3,7 @@
 ## Version: @project-version@
 ## Notes: Fixes recipe links You send
 ## Author: Numy
-## IconTexture: 982414
+## IconTexture: Interface\Addons\RecipeLinkFix\media\icon
 ## X-License: GNU General Public License version 3 (GPLv3)
 ## X-Curse-Project-ID: 280290
 ## X-Wago-ID: kRNLw0Go
