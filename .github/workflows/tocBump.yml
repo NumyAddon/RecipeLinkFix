@@ -28,9 +28,10 @@ jobs:
           git commit --allow-empty -m "${{ github.event.inputs.message }}"
           git push
 
-      - name: Release
+      - name: Publish release
         uses: softprops/action-gh-release@v1
         with:
+          # this cannot be ${{ secrets.GITHUB_TOKEN }} because that'll block the on release publish workflow from running
           token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
           name: ${{ steps.version.outputs.v-version }}
           tag_name: ${{ steps.version.outputs.v-version }}
