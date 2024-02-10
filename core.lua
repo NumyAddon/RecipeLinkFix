@@ -1,7 +1,7 @@
 local title = "RecipeLinkFix"
 
 local coreFrame = CreateFrame("Frame");
-local core = LibStub("AceAddon-3.0"):NewAddon(coreFrame, title, "AceHook-3.0") 
+local core = LibStub("AceAddon-3.0"):NewAddon(coreFrame, title, "AceHook-3.0")
 
 local gsub = gsub
 local string_find = string.find
@@ -29,7 +29,7 @@ function core:SendChatMessage(...)
             tempMsg,_ = gsub(tempMsg, "(|%x-|Henchant:".. enchantString ..".-|r)", link)
             found, _, enchantString = string_find(tempMsg, "Henchant:(%d+)")
         end
-        
+
         core.hooks.SendChatMessage(tempMsg, chatType, language, channel);
         return;
     end
