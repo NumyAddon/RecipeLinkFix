@@ -5,7 +5,7 @@ local core = LibStub("AceAddon-3.0"):NewAddon(coreFrame, title, "AceHook-3.0")
 
 local gsub = gsub
 local string_find = string.find
-local GetSpellLink = GetSpellLink
+local GetSpellLink = GetSpellLink or C_Spell.GetSpellLink;
 
 -- Ace3 Functions
 function core:OnInitialize()
