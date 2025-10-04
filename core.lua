@@ -1,3 +1,9 @@
+if select(4, GetBuildInfo()) >= 120000 then
+    print('RecipeLinkFix no longer works in 12.0 and later, please remove it.')
+
+    return
+end
+
 local title = "RecipeLinkFix"
 
 local coreFrame = CreateFrame("Frame");
@@ -9,7 +15,11 @@ local GetSpellLink = GetSpellLink or C_Spell.GetSpellLink;
 
 -- Ace3 Functions
 function core:OnInitialize()
-    self:RawHook("SendChatMessage", true)
+    if C_ChatInfo.SendChatMessage then
+        self:RawHook(C_ChatInfo, 'SendChatMessage', true)
+    else
+        self:RawHook('SendChatMessage', true)
+    end
 end
 
 ------------------------------------------------------------------
@@ -21,17 +31,25 @@ function core:SendChatMessage(...)
         local tempMsg = msg
         local found, _, enchantString = string_find(tempMsg, "Henchant:(%d+)")
         local link = nil
-        while(found ~= nil) do --repeat untill all links are fixed
-            link,_ = GetSpellLink(enchantString)
+        while (found ~= nil) do --repeat untill all links are fixed
+            link, _ = GetSpellLink(enchantString)
             if link == nil then
                 break
             end
-            tempMsg,_ = gsub(tempMsg, "(|%x-|Henchant:".. enchantString ..".-|r)", link)
+            tempMsg, _ = gsub(tempMsg, "(|%x-|Henchant:" .. enchantString .. ".-|r)", link)
             found, _, enchantString = string_find(tempMsg, "Henchant:(%d+)")
         end
 
-        core.hooks.SendChatMessage(tempMsg, chatType, language, channel);
+        if C_ChatInfo.SendChatMessage then
+            self.hooks[C_ChatInfo].SendChatMessage(tempMsg, chatType, language, channel);
+        else
+            self.hooks.SendChatMessage(tempMsg, chatType, language, channel);
+        end
         return;
     end
-    core.hooks.SendChatMessage(...)
+    if C_ChatInfo.SendChatMessage then
+        self.hooks[C_ChatInfo].SendChatMessage(...);
+    else
+        self.hooks.SendChatMessage(...);
+    end
 end
